@@ -1,101 +1,133 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState } from "react";
+import QuizForm from "@/components/QuizForm";
+import ResultPage from "@/components/ResultPage"; // Import ResultPage
+import animals from "@/app/data/animals";
+import { Luckiest_Guy } from '@next/font/google';
+import { GiSloth } from "react-icons/gi";
+
+const logoFont = Luckiest_Guy({ subsets: ['latin'], weight: '400' });
+
+const QuizPage = () => {
+  const [selectedAnimal, setSelectedAnimal] = useState(null);
+
+  const questions = [
+    {
+      name: "name",
+      label: "What is your name? Nothing says more about you than your name!",
+      type: "text",
+      placeholder: "Enter your name",
+      validation: { required: "Name is required" },
+    },
+    {
+      "name": "foot_reaction",
+      "label": "What is your reaction when someone accidentally steps on your foot?",
+      "type": "radio",
+      "options": [
+        "I loudly say 'Ouch!' to make sure they know.",
+        "I give them a silent glare.",
+        "I laugh it off—it happens!",
+        "I pretend it didn’t hurt and move on."
+      ]
+    },
+    {
+      "name": "color_taste",
+      "label": "Which color feels like it would taste the best if colors were edible?",
+      "type": "radio",
+      "options": [
+        "Red",
+        "Yellow",
+        "Green",
+        "Purple"
+      ]
+    },
+    {
+      "name": "forks_count",
+      "label": "How many forks do you think is the right number to own in your kitchen?",
+      "type": "radio",
+      "options": [
+        "One for every person in the house—no more.",
+        "At least 10, just in case.",
+        "I’ve never counted, but probably too many.",
+        "Why do you care about my forks?"
+      ]
+    },
+    {
+      "name": "squirrel_thought",
+      "label": "When you see a squirrel in the park, what’s your immediate thought?",
+      "type": "radio",
+      "options": [
+        "Aw, so cute!",
+        "I wonder if it’s planning something.",
+        "What’s it eating?",
+        "Do squirrels ever get tired of being squirrels?"
+      ]
+    },
+    {
+      "name": "animal_communication",
+      "label": "Imagine you’ve been offered the ability to communicate with only one of the following for a day. Which would you choose?",
+      "type": "radio",
+      "options": [
+        "Birds",
+        "Dogs",
+        "Fish",
+        "Insects"
+      ]
+    },
+    {
+      "name": "orange_peel",
+      "label": "How do you peel an orange?",
+      "type": "radio",
+      "options": [
+        "I carefully remove the peel in one perfect spiral.",
+        "I just dig in with my fingers—it’s faster.",
+        "I use a knife to make it easier.",
+        "I don’t peel oranges; I avoid the hassle altogether."
+      ]
+    }
+  ];
+
+  const handleFormSubmit = (data: any) => {
+    // Randomly pick an animal
+    if (data.name.toLowerCase() === "ely")
+      setSelectedAnimal(animals[0]);
+    else {
+      const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+      setSelectedAnimal(randomAnimal);
+    }
+  };
+
+  const handleRetakeQuiz = () => {
+    setSelectedAnimal(null); // Reset the selected animal
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="" style={{ backgroundImage: 'url(/images/jungle.webp)', backgroundPosition: 'center center', backgroundSize: "cover" }}>
+      <nav>
+        <div className="w-full bg-blue-700 p-4 text-white border-b-4 border-b-blue-900">
+          <div className={`${logoFont.className} text-2xl font-bold font-italic flex`}><GiSloth className="mr-2" /> AnimalFinder</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="min-w-[300px] max-w-lg p-8 font-body">
+          <div className="bg-opacity-70 p-5 bg-white">
+            { !selectedAnimal 
+              ? <>
+                  <h1 className="text-2xl font-headline font-bold text-center mb-3">What is YOUR animal?</h1>
+                  <p className="text-sm mb-5">Take this short quiz to find out what animal represents your personality the best!</p>
+                  <QuizForm questions={questions} onSubmit={handleFormSubmit} />
+                </>
+              : <ResultPage animal={selectedAnimal} onRetake={handleRetakeQuiz} />
+            }
+          </div>
+        </div>
+      </div>
+      <footer className="bg-slate-600 p-5 text-white font-bold font-body border-t-4 border-t-slate-800">
+        Copybara AnimalFinder 2025
       </footer>
-    </div>
+    </main>
   );
-}
+};
+
+export default QuizPage;
