@@ -13,7 +13,7 @@ type ResultPageProps = {
 
 const ResultPage = ({ animal, onRetake }: ResultPageProps) => {
   const shareOnWhatsApp = () => {
-    const message = `I just took a quiz and found out I'm a ${animal.name}! 🐾 ${animal.description}`;
+    const message = `I just took a quiz and found out I'm a ${animal.name}! 🐾 ${animal.description} %0A Take your quiz too on https://animalfinder.vercel.app!`;
     const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
