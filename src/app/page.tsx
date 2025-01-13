@@ -109,7 +109,7 @@ const QuizPage = () => {
           <div className={`${logoFont.className} text-2xl font-bold font-italic flex`}><GiSloth className="mr-2" /> AnimalFinder</div>
         </div>
       </nav>
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen text-black">
         <div className="min-w-[300px] max-w-lg p-8 font-body">
           <div className="bg-opacity-70 p-5 bg-white">
             { !selectedAnimal 
