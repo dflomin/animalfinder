@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import QuizForm from "@/components/QuizForm";
 import ResultPage from "@/components/ResultPage"; // Import ResultPage
 import animals from "@/app/data/animals";
-import { Luckiest_Guy } from '@next/font/google';
+import { Luckiest_Guy } from 'next/font/google';
 import { GiSloth } from "react-icons/gi";
 
 const logoFont = Luckiest_Guy({ subsets: ['latin'], weight: '400' });
