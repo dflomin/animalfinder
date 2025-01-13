@@ -1,4 +1,5 @@
 import React from "react";
+import { GiEmptyHourglass, GiStarFormation } from "react-icons/gi";
 
 type Animal = {
   name: string;
@@ -19,7 +20,7 @@ const ResultPage = ({ animal, onRetake }: ResultPageProps) => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+    <div className="flex justify-center items-center min-h-screen">
       <div className="text-center bg-white rounded-lg p-8 max-w-lg">
         <img
           src={animal.image}
@@ -28,6 +29,8 @@ const ResultPage = ({ animal, onRetake }: ResultPageProps) => {
         />
         <h1 className="text-3xl font-bold mb-4">You're a {animal.name}!</h1>
         <p className="text-lg text-gray-700 mb-6">{animal.description}</p>
+        <p className="font-body mb-3"><GiEmptyHourglass className="inline" /> Your <strong>personality</strong> rating is <span className="bg-slate-200 text-xs inline-block p-1 rounded-lg">{Math.random() * 2}</span>. Nice!</p>
+        <p className="font-body mb-3"><GiStarFormation className="inline" /> Your <strong>star channel</strong> rating is <span className="bg-slate-200 text-xs inline-block p-1 rounded-lg">{Math.floor(Math.random() * 10)}&deg; | {Math.floor(Math.random() * 10)}&deg;</span>. That's very unique!</p>
         <div className="flex justify-center space-x-4">
           <button
             onClick={shareOnWhatsApp}

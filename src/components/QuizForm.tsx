@@ -74,7 +74,7 @@ const QuizForm = ({ questions, onSubmit }: QuizFormProps) => {
       </div>
 
       {/* Animated Question */}
-      <div className="relative flex-1 min-h-[205px] overflow-x-hidden">
+      <div className="relative flex-1 min-h-[245px] overflow-x-hidden">
         <AnimatePresence initial={false} custom={currentStep}>
           {questions.map(
             (question, index) =>
