@@ -44,41 +44,6 @@ const animals = [
     image: "/images/dolphin.jpg",
     description: "You're playful, clever, and always up for making waves. You'd thrive as a motivational speaker, but your real dream is to star in a synchronized swimming team."
   },
-  {
-    name: "Koala",
-    image: "/images/koala.png",
-    description: "You're cute, cuddly, and sleep 18 hours a day—which honestly sounds like goals. You're laid-back to the point where people wonder if you're secretly running on eucalyptus fumes."
-  },
-  {
-    name: "Panda",
-    image: "/images/panda.png",
-    description: "You're adorable, chill, and spend most of your time eating or falling off things in slow motion. You bring joy to everyone, even when you’re just rolling around looking confused."
-  },
-  {
-    name: "Kangaroo",
-    image: "/images/kangaroo.png",
-    description: "You're energetic and always bouncing back, literally. You carry your problems in a metaphorical pouch, but also snacks—because you're smart like that."
-  },
-  {
-    name: "Fox",
-    image: "/images/fox.png",
-    description: "You're sly, clever, and have a knack for looking good in every situation. People say you're sneaky, but really, you're just great at finding loopholes and snacks."
-  },
-  {
-    name: "Bear",
-    image: "/images/bear.png",
-    description: "You're strong, cuddly, and hibernate like a pro. When you're not napping, you're probably stealing someone's picnic basket and making it look accidental."
-  },
-  {
-    name: "Rabbit",
-    image: "/images/rabbit.png",
-    description: "You're quick, charming, and everyone thinks you're multiplying—friends, tasks, or carrots, take your pick. You're also the reason people believe in the magic of lucky feet."
-  },
-  {
-    name: "Owl",
-    image: "/images/owl.png",
-    description: "You're wise, mysterious, and thrive at 3 AM when everyone else is asleep. People think you're deep, but really you're just deciding whether to hoot or binge-watch documentaries."
-  },
 ];
 
 export default animals;
